@@ -126,12 +126,16 @@ const tabBody = tabs.querySelector(".tab-body");
 const tabHeaderNodes = tabs.querySelectorAll(".tab-header>.heading")
 const tabBodyNodes = tabs.querySelectorAll(".tab-body>.tab-content");
 const tabInterval = 5000
+
+
 // let activeHeader = "business"
 
 for(let i=0; i<tabHeaderNodes.length; i++){
+
+    console.log("work tab active")
     
     tabHeaderNodes[i].addEventListener("click", (e) =>{
-        
+        console.log("tab cliked")
         tabHeader.querySelector(".active").classList.remove("active");
         tabHeaderNodes[i].classList.add("active");
         tabBody.querySelector(".active").classList.remove("active");
@@ -198,37 +202,95 @@ busRemoveActive = function(busSlide) {busSlide.classList.remove('current-item')}
 
 
 
-    //Our work carousel automation - home
+//Our work carousel automation - home
 
-    const homeTrack = document.querySelector(".home__carousel__inner");
-    const homeSlides = Array.from(homeTrack.children);
+const homeTrack = document.querySelector(".home__carousel__inner");
+const homeSlides = Array.from(homeTrack.children);
 
-    homeAddActive = function(homeSlide){homeSlide.classList.add('current-item')};
-    homeRemoveActive = function(homeSlide){homeSlide.classList.remove('current-item')};
+homeAddActive = function(homeSlide){homeSlide.classList.add('current-item')};
+homeRemoveActive = function(homeSlide){homeSlide.classList.remove('current-item')};
+
+//About us
+const aboutTrack = document.querySelector(".card-container")
+const cards = Array.from(aboutTrack.children)
+const solutionsTrack = document.querySelector(".solution-container")
+const solutions = Array.from(solutionsTrack.children)
+
+cardAddActive = function(card){card.classList.add('small-screen')};
+cardRemoveActive = function(card){card.classList.remove('small-screen')};
+
+solutionAddActive = function(soltution){soltution.classList.add('active')};
+solutionRemoveActive = function(soltution){soltution.classList.remove('active')};
+
+let width = window.innerWidth
+console.log(width)
+if ( width < 560 ){
+    setInterval(function (){
+        for (var i = 0; i < cards.length; i++){
+            if (i + 1 == cards.length) {
+            cardAddActive(cards[0]);
+            cards[0].style.zIndex = 100;
+            setTimeout(cardRemoveActive, 350, cards[i]); //Doesn't be worked in IE-9
+            break;
+            }
+            if (cards[i].classList.contains('small-screen')) { 
+            cards[i].removeAttribute('style');
+            setTimeout(cardRemoveActive, 350, cards[i]); //Doesn't be worked in IE-9
+            cardAddActive(cards[i + 1]);
+            break;
+                }
+            } 
+        }, tabInterval);
+
+        setInterval(function (){
+            for (var i = 0; i < solutions.length; i++){
+                if (i + 1 == solutions.length) {
+                solutionAddActive(solutions[0]);
+                solutions[0].style.zIndex = 100;
+                setTimeout(solutionRemoveActive, 350, solutions[i]); //Doesn't be worked in IE-9
+                break;
+                }
+                if (solutions[i].classList.contains('active')) { 
+                    solutions[i].removeAttribute('style');
+                setTimeout(solutionRemoveActive, 350, solutions[i]); //Doesn't be worked in IE-9
+                solutionAddActive(solutions[i + 1]);
+                break;
+                    }
+                } 
+            }, tabInterval);
+    console.log("Small window")
+}else{
+    console.log("Wider screen")
+
+}
+
+//Contact form
+
+const contactForm = document.querySelector(".form-container");
+const formHeader = contactForm.querySelector(".form-header");
+const formBody = contactForm.querySelector(".form-body");
+const formHeaderNodes = contactForm.querySelectorAll(".form-header>.heading");
+const formBodyNodes = contactForm.querySelectorAll(".form-body>.form-section");
+
+console.log(formBodyNodes)
+
+for(let i=0; i<formHeaderNodes.length; i++){
+
+    formHeaderNodes[i].addEventListener("click", (e) =>{
+        console.log( formHeaderNodes[i])
+        formHeader.querySelector(".active").classList.remove("active");
+        formHeaderNodes[i].classList.add("active");
+        formBody.querySelector(".active").classList.remove("active");
+        formBodyNodes[i].classList.add("active")
+    })
+
+}
+
+
 
 
 } 
-//About us
-// window.onload = function(){
-//     var slides = document.getElementsByClassName('carousel__slide'),
-//         addActive = function(slide) {slide.classList.add('active')},
-//         removeActive = function(slide) {slide.classList.remove('active')};
-//     addActive(slides[0]);
-    
-//     setInterval(function (){
-//       for (var i = 0; i < slides.length; i++){
-//         if (i + 1 == slides.length) {
-//           addActive(slides[0]);
-//           slides[0].style.zIndex = 100;
-//           setTimeout(removeActive, 350, slides[i]); //Doesn't be worked in IE-9
-//           break;
-//         }
-//         if (slides[i].classList.contains('active')) { 
-//           slides[i].removeAttribute('style');
-//           setTimeout(removeActive, 350, slides[i]); //Doesn't be worked in IE-9
-//           addActive(slides[i + 1]);
-//           break;
-//         }
-//       } 
-//     }, 4000);
-//   }
+
+
+
+ 
