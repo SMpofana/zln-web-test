@@ -170,21 +170,44 @@
     text-align: center;
     border-bottom: 0.1rem solid var(--color-grey);
     background: transparent;
-    font-size: 1em;
-    text-transform: capitalize;
+    color: white;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element i {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    z-index: -1;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #name-icon {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #surname-icon {
+    position: absolute;
+    top: 6%;
+    right: 40%;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #email-icon {
+    position: absolute;
+    top: 20%;
+    left: 6%;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #phone-number-icon {
+    position: absolute;
+    top: 34%;
+    left: 6%;
+  }
+  .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #msg-icon {
+    position: absolute;
+    top: 45%;
+    left: 6%;
+    color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
   }
   .contact .contact-form-body .form-container .form-body .form-section.active {
     transform: translateX(0%);
     top: 3rem;
     opacity: 1;
-  }
-  .contact .contact-form-body .form-container .general-q {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .contact .contact-form-body .form-container .general-q .gen-form-element {
     margin: 10px 0;
@@ -469,8 +492,8 @@
   }
   .contact .contact-form-body .form-container .form-body .form-section .gen-form-element #msg-icon {
     position: absolute;
-    top: 40%;
-    left: 2%;
+    top: 45%;
+    left: 6%;
     color: rgba(0, 0, 0, 0.6);
   }
   .contact .contact-form-body .form-container .form-body .form-section .gen-form-element .placeholder-msg {
@@ -506,34 +529,6 @@
     font-size: 1em;
     border-radius: 0.5em;
   }
-  .contact .contact-form-body .form-container .quote {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .contact .contact-form-body .form-container .quote .gen-form-element {
-    width: 60%;
-    display: block;
-    margin: 10px 0;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .contact .contact-form-body .form-container .quote .gen-form-element input {
-    width: 100%;
-    height: 5rem;
-    border: none;
-    display: block;
-    text-align: center;
-  }
-  .contact .contact-form-body .form-container .quote .form-radio {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
   .contact .contact-form-body .form-container button {
     width: 12em;
     height: 3em;
@@ -541,12 +536,13 @@
     color: white;
     border: 1px solid var(--color-primary);
     border-radius: 1.5em;
+    cursor: pointer;
   }
   .submit-form-container {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
     background-color: rgb(255, 255, 255);
     align-items: center;
@@ -608,6 +604,7 @@
     top: 20%;
     font-size: 1em;
     font-family: "Futura-Bold", arial;
+    cursor: pointer;
   }
   .submit-form-container button:hover {
     color: rgb(255, 255, 255);

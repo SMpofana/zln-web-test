@@ -7,7 +7,7 @@ window.onload = function(){
     const dotNav = document.querySelector(".carousel__nav");
     const dots = Array.from(dotNav.children);
     // const totalSlides = slides.length;
-    const interval = 5000;
+    const interval = 8000;
     let time ;
 
     //Automate header
@@ -125,7 +125,7 @@ const tabHeader = tabs.querySelector(".tab-header");
 const tabBody = tabs.querySelector(".tab-body");
 const tabHeaderNodes = tabs.querySelectorAll(".tab-header>.heading")
 const tabBodyNodes = tabs.querySelectorAll(".tab-body>.tab-content");
-const tabInterval = 5000
+const tabInterval = 8000
 
 
 // let activeHeader = "business"
@@ -258,33 +258,13 @@ if ( width < 560 ){
                     }
                 } 
             }, tabInterval);
-    console.log("Small window")
+   
 }else{
-    console.log("Wider screen")
+   
 
 }
 
-//Contact form
 
-const contactForm = document.querySelector(".form-container");
-const formHeader = contactForm.querySelector(".form-header");
-const formBody = contactForm.querySelector(".form-body");
-const formHeaderNodes = contactForm.querySelectorAll(".form-header>.heading");
-const formBodyNodes = contactForm.querySelectorAll(".form-body>.form-section");
-
-console.log(formBodyNodes)
-
-for(let i=0; i<formHeaderNodes.length; i++){
-
-    formHeaderNodes[i].addEventListener("click", (e) =>{
-        console.log( formHeaderNodes[i])
-        formHeader.querySelector(".active").classList.remove("active");
-        formHeaderNodes[i].classList.add("active");
-        formBody.querySelector(".active").classList.remove("active");
-        formBodyNodes[i].classList.add("active")
-    })
-
-}
 
 
 
